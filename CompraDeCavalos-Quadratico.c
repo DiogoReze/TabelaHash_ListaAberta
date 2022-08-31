@@ -68,12 +68,11 @@ CompraCavalos entradaDados(){
 void inserirCavalo(){
   CompraCavalos cavalo = entradaDados();
   int indice = funcEspalhamento(cavalo.id);
-  int contador = 1, acumulador = 1;
+  int contador = 1;
 
   while(tabelaHash[indice].id != 0){
-  	indice = funcEspalhamento(funcEspalhamento(cavalo.id) + acumulador);
+  	indice = funcEspalhamento(funcEspalhamento(cavalo.id) + pow(contador, 2));
   	contador++;
-  	acumulador+= contador;
   }
 
   tabelaHash[indice] = cavalo;
@@ -83,7 +82,7 @@ void inserirCavalo(){
 //Buscando um cavalo pelo seu id (nossa chave)
 CompraCavalos* buscarCavalo(int chave){
   int indice = funcEspalhamento(chave);
-  int contador = 1, acumulador = 1;
+  int contador = 1;
 
   while(tabelaHash[indice].id != 0){
     if(tabelaHash[indice].id == chave){
@@ -91,9 +90,8 @@ CompraCavalos* buscarCavalo(int chave){
     }
     else{
 	  //caso possua colisão e o valor que estamos procurando esta em outra posicao
-      indice = funcEspalhamento(funcEspalhamento(chave) + acumulador);
+      indice = funcEspalhamento(funcEspalhamento(chave) + pow(contador, 2));
   	  contador++;
-  	  acumulador+= contador;
     }
   }
   return NULL; //O elemento nao esta na tabela
