@@ -146,7 +146,7 @@ void imprimirCavalosPorTemperamento(){
 // funcao de remover um cavalo do estabulo
 void remover(int pos) {
   int i, verificador = 0;
-  if ((tabelaHash[pos].id != 0) && ((tabelaHash[pos].id) != 0) ){
+  if ((tabelaHash[pos].id != 0) && ((tabelaHash[pos].temperamento) != 0) ){
       printf("\n-> Dados HASH[%d] estao sendo apagados...\n",pos);
       printf("%2d = %3d | %s | %.2f | %d | %.1f | %d\n", pos, tabelaHash[pos].id, tabelaHash[pos].nome,
               tabelaHash[pos].preco, tabelaHash[pos].idade, tabelaHash[pos].velocidade, tabelaHash[pos].temperamento);
